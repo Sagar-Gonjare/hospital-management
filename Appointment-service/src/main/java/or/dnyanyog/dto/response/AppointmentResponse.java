@@ -1,21 +1,15 @@
-package org.dnyanyog.dto.response;
-import java.util.List;
+package or.dnyanyog.dto.response;
 
 import org.springframework.stereotype.Component;
 
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-
 @Component
-@JsonPropertyOrder({"responseCode", "responseMessage", "data", "error"})
 
-public class AddUserResponse {
-	
+public class AppointmentResponse {
 	private int responseCode;
 	
 	private String responseMsg;
 	
-	private AddUserData data;
-	
+	private AppointmentData data;
 
   public int getResponseCode() {
   return responseCode;}
@@ -29,14 +23,11 @@ public class AddUserResponse {
   public void setResponseMsg(String responseMsg) {
   this.responseMsg = responseMsg;}
 
-  public AddUserData getData() {
+  public AppointmentData getData() {
   return data;}
 
-  public void setData(AddUserData data) {
+  public void setData(AppointmentData data) {
   this.data = data;}
-
- 
+	
 	
 }
-
-

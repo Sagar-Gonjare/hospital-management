@@ -1,13 +1,17 @@
 package org.dnyanyog.controller;
 
-import org.dnyanyog.dto.request.AddUserRequest;
-import org.dnyanyog.dto.response.AddUserResponse;
+
+import org.dnyanyog.dto.request.UserRequest;
+import org.dnyanyog.dto.response.UserResponse;
 import org.dnyanyog.service.UserService;
 import org.dnyanyog.service.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -17,9 +21,27 @@ public class UsersController {
 	
 	@PostMapping (path="api/directory/v1/addUser", consumes = { "application/json", "application/xml" }, produces = {
 			"application/json", "application/xml" })
-	public ResponseEntity<AddUserResponse> addUser(@RequestBody  AddUserRequest request) throws Exception{
+	public ResponseEntity<UserResponse> addUser(@RequestBody  UserRequest request) throws Exception{
 		
-	ResponseEntity<AddUserResponse> response =userServiceImpl.addUser(request);
+	ResponseEntity<UserResponse> response =userServiceImpl.addUser(request);
 	return response;
+	}
+	
+	@PostMapping (path="api/directory/v1/updateUser", consumes = { "application/json", "application/xml" }, produces = {
+			"application/json", "application/xml" })
+	public ResponseEntity<UserResponse> updateUser(@RequestBody UserRequest request) throws Exception{
+		return userServiceImpl.updateUser(request);
+	}
+	
+//	@DeleteMapping (path="api/directory/v1/delteUser/{userId}")
+//	public ResponseEntity<UserResponse> deleteUser(@PathVariable Long userId) {
+//		UserResponse response=userServiceImpl.deleteUser(userId);
+//		
+//		return ResponseEntity.status(response.getResponseCode()).body(response);
+//	}
+	@DeleteMapping(path = "api/directory/v1/delteUser/{userId}")
+	public ResponseEntity<UserResponse> deleteUser(@PathVariable Long userId) {
+		UserResponse response = userServiceImpl.deleteUser(userId);
+		return ResponseEntity.status(response.getResponseCode()).body(response);
 	}
 }
