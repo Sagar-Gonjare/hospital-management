@@ -1,7 +1,12 @@
 package or.dnyanyog.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -13,29 +18,40 @@ import or.dnyanyog.service.AppointmentServiceImpl;
 
 @RestController
 public class AppointmentController {
-	
-	@Autowired AppointmentResponse response;
-	@Autowired AppointmentServiceImpl service;
-	@Autowired AppointmentRepo repo;
 
-	@PostMapping ( path = "api/appointments/v1/addAppointment",
+  @Autowired AppointmentServiceImpl service;
+
+  @PostMapping(
+      path = "api/appointments/v1/addAppointment",
       consumes = {"application/json", "application/xml"},
       produces = {"application/json", "application/xml"})
-	public ResponseEntity<AppointmentResponse>addAppointment(@RequestBody AppointmentRequest request){
-		return service.addAppointments(request);
-		
-	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+  public ResponseEntity<AppointmentResponse> addAppointment(
+      @RequestBody AppointmentRequest request) {
+    return service.addAppointments(request);
+  }
+
+  @PostMapping(
+      path = "api/appointments/v1/updateAppointment",
+      consumes = {"application/json", "application/xml"},
+      produces = {"application/json", "application/xml"})
+  public ResponseEntity<AppointmentResponse> updateAppointment(
+      @RequestBody AppointmentRequest request) throws Exception {
+    return service.updateUser(request);
+  }
+
+  @GetMapping(path = "api/appointments/v1/getAllAppointment")
+  public ResponseEntity<List<AppointmentResponse>> getAllUsers() {
+    return service.getAllPatients();
+  }
+
+  @GetMapping(path = "api/appointments/v1/getAppointmentByAppointment/{appointmentId}")
+  public ResponseEntity<AppointmentResponse> getAppointmentById(@PathVariable Long appointmentId) {
+    return service.getAppointmentByAppointmentID(appointmentId);
+  }
+
+  @DeleteMapping(path = "api/appointments/v1/delteAppointment/{appointmentId}")
+  public ResponseEntity<AppointmentResponse> deleteUser(@PathVariable Long appointmentId) {
+    AppointmentResponse response = service.deleteAppointment(appointmentId);
+    return ResponseEntity.status(response.getResponseCode()).body(response);
+  }
 }

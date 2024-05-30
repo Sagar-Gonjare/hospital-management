@@ -209,9 +209,9 @@ public class PatientServiceImpl  {
   }
 
   public ResponseEntity<PatientResponse> getPatientByPatientName(String patientName) {
-    List<Patients> patients = repo.findByPatientNameEnglishContainingIgnoreCase(patientName);
+    List<Patients> patients = repo.findByPatientNameEnglish(patientName);
     List<PatientData> patientList = new ArrayList<>();
-
+    response = new PatientResponse();
     for (Patients patient : patients) {
       PatientData patientsData =
           PatientData.getInstance()
@@ -224,16 +224,18 @@ public class PatientServiceImpl  {
               .setBirthDate(patient.getBirthDate())
               .setPatientStatus(patient.getPatientStatus())
               .setFirstExaminationDate(patient.getFirstExaminationDate());
+     
       patientList.add(patientsData);
+      response.setData(patientsData);
     }
     if (patientList.isEmpty()) {
-      response = new PatientResponse();
+    	response = new PatientResponse();
       response.setResponseCode(HttpStatus.NOT_FOUND.value());
       response.setResponseMsg("Patient not found");
 
       return ResponseEntity.status(HttpStatus.OK).body(response);
     } else {
-      response = new PatientResponse();
+      //response = new PatientResponse();
     //  response.setData(patientList);
       response.setResponseCode(HttpStatus.FOUND.value());
       ;

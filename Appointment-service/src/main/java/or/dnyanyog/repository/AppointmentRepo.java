@@ -10,7 +10,7 @@ import or.dnyanyog.entity.Appointments;
 
 @Component@Repository
 public interface AppointmentRepo extends JpaRepository<Appointments,Long>{
-	Optional<Appointments> getByAppointmentId(Long appointmentId );
+	Optional<Appointments> findByAppointmentId(Long appointmentId );
 	
 	Appointments findByExaminationDateAndPatientName(String date,String name);
 }

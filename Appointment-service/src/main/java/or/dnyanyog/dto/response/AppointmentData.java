@@ -8,11 +8,13 @@ public class AppointmentData {
 
   private String patientName;
 
-  private String patientid;
+  private String patientId;
 
   private String examinationDate;
 
   private String appointmentTime;
+
+  private String status;
 
   public static AppointmentData getInstance() {
     return new AppointmentData();
@@ -36,15 +38,6 @@ public class AppointmentData {
     return this;
   }
 
-  public String getPatientid() {
-    return patientid;
-  }
-
-  public AppointmentData setPatientid(String patientid) {
-    this.patientid = patientid;
-    return this;
-  }
-
   public String getExaminationDate() {
     return examinationDate;
   }
@@ -60,6 +53,24 @@ public class AppointmentData {
 
   public AppointmentData setAppointmentTime(String appointmentTime) {
     this.appointmentTime = appointmentTime;
+    return this;
+  }
+
+  public String getStatus() {
+    return status;
+  }
+
+  public AppointmentData setStatus(String status) {
+    this.status = status;
+    return this;
+  }
+
+  public String getPatientId() {
+    return patientId;
+  }
+
+  public AppointmentData setPatientId(String patientId) {
+    this.patientId = patientId;
     return this;
   }
 }

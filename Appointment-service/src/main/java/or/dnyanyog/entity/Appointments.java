@@ -18,6 +18,8 @@ public class Appointments {
 
   @Column private String appointmentTime;
 
+  @Column private String status;
+
   public static Appointments getInstance() {
     return new Appointments();
   }
@@ -64,6 +66,15 @@ public class Appointments {
 
   public Appointments setAppointmentTime(String appointmentTime) {
     this.appointmentTime = appointmentTime;
+    return this;
+  }
+
+  public String getStatus() {
+    return status;
+  }
+
+  public Appointments setStatus(String status) {
+    this.status = status;
     return this;
   }
 }
