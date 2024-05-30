@@ -170,7 +170,7 @@ public class PatientServiceImpl  {
               .setBirthDate(patient.getBirthDate())
               .setPatientStatus(patient.getPatientStatus())
               .setFirstExaminationDate(patient.getFirstExaminationDate());
-
+      patientList.add(response);
       response.setData( patientsData);
     }
     return ResponseEntity.status(HttpStatus.OK).body(patientList);
@@ -196,7 +196,7 @@ public class PatientServiceImpl  {
       response.setData( patientsData);
       response.setResponseMsg("patient found");
       response.setResponseCode(HttpStatus.FOUND.value());
-      ;
+      
       return ResponseEntity.status(HttpStatus.OK).body(response);
 
     } else {
