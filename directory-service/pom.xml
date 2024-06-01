@@ -14,7 +14,10 @@
 		<version>3.2.2</version>
 	</parent>
 	<dependencies>
-
+		<dependency>
+			<groupId>org.liquibase</groupId>
+			<artifactId>liquibase-core</artifactId>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
@@ -54,7 +57,9 @@
 		</dependency>
 
 	</dependencies>
-	<build>
+
+
+	<!-- 	<build>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -70,5 +75,18 @@
 			</plugin>
 		</plugins>
 	</build>
-
+-->
+	<build>
+		<finalName>liquibase</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.liquibase</groupId>
+				<artifactId>liquibase-maven-plugin</artifactId>
+				<configuration>
+					<propertyFile>liquibase.properties</propertyFile>
+					<changeLogFile>migrations/changelog.xml</changeLogFile>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
 </project>
