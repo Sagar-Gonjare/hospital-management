@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="mypane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="591.0" prefWidth="1113.0" style="-fx-background-color: fffffff;" stylesheets="@../Style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.dnyanyog.appointments.AppointmentsController">
+<AnchorPane fx:id="mypane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="591.0" prefWidth="1113.0" style="-fx-background-color: fffffff;" stylesheets="@../Style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.dnyanyog.cases.CasesController">
    <children>
       <AnchorPane layoutX="7.0" layoutY="60.0" prefHeight="530.0" prefWidth="180.0" styleClass="anchorpane-5">
          <children>
@@ -42,14 +42,9 @@
          <children>
             <AnchorPane layoutX="20.0" layoutY="36.0" prefHeight="490.0" prefWidth="894.0" styleClass="anchorpane-8">
                <children>
-                  <Button fx:id="edit" alignment="CENTER" layoutX="105.0" layoutY="122.0" mnemonicParsing="false" onAction="#edit" prefHeight="42.0" prefWidth="267.0" styleClass="button-3" text="Edit case" textFill="WHITE">
+                  <Button fx:id="edit" alignment="CENTER" layoutX="105.0" layoutY="172.0" mnemonicParsing="false" onAction="#edit" prefHeight="42.0" prefWidth="267.0" styleClass="button-3" text="Edit case" textFill="WHITE">
                      <font>
                         <Font size="17.0" />
-                     </font>
-                  </Button>
-                  <Button fx:id="search" alignment="CENTER" layoutX="105.0" layoutY="209.0" mnemonicParsing="false" onAction="#search" prefHeight="27.0" prefWidth="267.0" styleClass="button-3" text="Search case" textFill="WHITE">
-                     <font>
-                        <Font size="16.0" />
                      </font>
                   </Button>
                   <Button fx:id="delete" alignment="CENTER" layoutX="105.0" layoutY="287.0" mnemonicParsing="false" onAction="#delete" prefHeight="38.0" prefWidth="267.0" styleClass="button-3" text="Delete case" textFill="WHITE">
@@ -96,7 +91,7 @@
                   </Label>
                </children>
             </AnchorPane>
-            <Label layoutX="250.0" layoutY="5.0" styleClass="label-1" text="Cases">
+            <Label layoutX="250.0" layoutY="5.0" styleClass="label-1" text="Case Management">
                <font>
                   <Font size="35.0" />
                </font>

@@ -17,7 +17,7 @@ public class Cases {
 
   @Column private String patientName;
   @Column private String patientId;
-  @Column private String caseNo;
+  @Column private String caseNumber;
   @Column private String examinationDate;
   @Column private String symptoms;
   @Column private String prescription;
@@ -55,11 +55,11 @@ public class Cases {
   }
 
   public String getCaseNo() {
-    return caseNo;
+    return caseNumber;
   }
 
-  public Cases setCaseNo(String caseNo) {
-    this.caseNo = caseNo;
+  public Cases setCaseNumber(String caseNo) {
+    this.caseNumber = caseNo;
     return this;
   }
 

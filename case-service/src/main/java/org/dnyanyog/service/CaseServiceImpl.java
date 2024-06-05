@@ -9,7 +9,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
-
 import org.dnyanyog.dto.request.CaseRequest;
 import org.dnyanyog.dto.response.CaseData;
 import org.dnyanyog.dto.response.CaseResponse;
@@ -27,19 +26,21 @@ public class CaseServiceImpl implements CaseService {
 
   public ResponseEntity<CaseResponse> addCase(CaseRequest request) throws Exception {
 	  
-	  
-    if (repo.findByCaseNo(request.getCaseNo()) != null) {
+	    response = new CaseResponse();
+
+    if (repo.existsByCaseNumber(request.getCaseNo())) {
       CaseResponse response = new CaseResponse();
       response.setResponseCode(HttpStatus.CONFLICT.value());
       response.setResponseMsg("Case is already exist");
       return ResponseEntity.status(HttpStatus.OK).body(response);
     }
+    
+    if (!(repo.existsByCaseNumber(request.getCaseNo()))) {
     response = new CaseResponse();
    // response.setData(new CaseData());
-    if (repo.findByCaseNo(request.getCaseNo()) == null) {
       Cases caseTable =
           Cases.getInsatnce()
-              .setCaseNo(request.getCaseNo())
+              .setCaseNumber(request.getCaseNo())
               .setExaminationDate(request.getExaminationDate())
               .setPatientId(request.getPatientId())
               .setPatientName(request.getPatientName())
@@ -74,7 +75,7 @@ public class CaseServiceImpl implements CaseService {
       Cases updateCases = getCase.get();
 
       if (request.getCaseNo() != null) {
-        updateCases.setCaseNo(request.getCaseNo());
+        updateCases.setCaseNumber(request.getCaseNo());
       }
       if (request.getExaminationDate() != null) {
         updateCases.setExaminationDate(request.getExaminationDate());
@@ -136,7 +137,7 @@ public class CaseServiceImpl implements CaseService {
     return response;
   }
 
-  public ResponseEntity<CaseResponse> getCaseByCaseID(Long caseId) {
+  public CaseResponse getCaseByCaseID(Long caseId) {
     Optional<Cases> caseGet = repo.findByCaseId(caseId);
     if (caseGet.isPresent()) {
       Cases getCase = caseGet.get();
@@ -151,15 +152,15 @@ public class CaseServiceImpl implements CaseService {
               .setSymptoms(getCase.getSymptoms())
               .setStatus(getCase.getStatus());
       response = new CaseResponse();
-      response.setResponseCode(HttpStatus.FOUND.value());
+      response.setResponseCode(HttpStatus.OK.value());
       response.setResponseMsg("Case  found");
       response.setData(caseData);
-      return ResponseEntity.status(HttpStatus.FOUND).body(response);
+      return response;
     } else {
       response = new CaseResponse();
-      response.setResponseCode(HttpStatus.NOT_FOUND.value());
+      response.setResponseCode(HttpStatus.OK.value());
       response.setResponseMsg("Case not found");
-      return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
+      return response;
     }
   }
 

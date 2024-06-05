@@ -3,7 +3,7 @@
 
 	<changeSet id="020520242" author="Sagar Gonjare">
 
-		<createTable tableName="users_Table" schemaName="audit_service_liquibase_db">
+		<createTable tableName="Users" schemaName="hospital_directory_service_db">
 			<column name="userId" type="int">
 				<constraints primaryKey="true" />
 			</column>

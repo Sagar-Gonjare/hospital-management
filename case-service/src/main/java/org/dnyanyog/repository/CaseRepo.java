@@ -1,16 +1,16 @@
 package org.dnyanyog.repository;
+import java.util.List;
+import java.util.Optional;
 
 import org.dnyanyog.entity.Cases;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
-
-
-import java.util.Optional;
-
+@Component
 @Repository
 public interface CaseRepo extends JpaRepository <Cases,Long>{
 	Optional<Cases> findByCaseId(Long caseId);
-	Optional<Cases> findByCaseNo(String caseNo);
+	Optional<Cases> findByCaseNumber(String caseNo);
 
-	Optional<Cases> findByPatientId(String patientId);
+	boolean  existsByCaseNumber(String patientId);
 }

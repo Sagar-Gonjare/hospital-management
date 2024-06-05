@@ -42,14 +42,9 @@
          <children>
             <AnchorPane layoutX="20.0" layoutY="36.0" prefHeight="490.0" prefWidth="894.0" styleClass="anchorpane-8">
                <children>
-                  <Button fx:id="edit" alignment="CENTER" layoutX="105.0" layoutY="122.0" mnemonicParsing="false" onAction="#edit" prefHeight="42.0" prefWidth="267.0" styleClass="button-3" text="Edit Appointment" textFill="WHITE">
+                  <Button fx:id="edit" alignment="CENTER" layoutX="105.0" layoutY="175.0" mnemonicParsing="false" onAction="#edit" prefHeight="42.0" prefWidth="267.0" styleClass="button-3" text="Update Appointment" textFill="WHITE">
                      <font>
                         <Font size="17.0" />
-                     </font>
-                  </Button>
-                  <Button fx:id="search" alignment="CENTER" layoutX="105.0" layoutY="209.0" mnemonicParsing="false" onAction="#search" prefHeight="27.0" prefWidth="267.0" styleClass="button-3" text="Search Appointment" textFill="WHITE">
-                     <font>
-                        <Font size="16.0" />
                      </font>
                   </Button>
                   <Button fx:id="delete" alignment="CENTER" layoutX="105.0" layoutY="287.0" mnemonicParsing="false" onAction="#delete" prefHeight="38.0" prefWidth="267.0" styleClass="button-3" text="Delete Appointment" textFill="WHITE">

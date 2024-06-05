@@ -1,3 +1,5 @@
 package org.dnyanyog.login;
 
-public class Login {}
+import org.dnyanyog.common.CommonScreen;
+
+public class Login extends CommonScreen{}

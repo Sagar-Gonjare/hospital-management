@@ -23,10 +23,7 @@
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-security</artifactId>
-		</dependency>
+		
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
@@ -59,9 +56,13 @@
 	</dependencies>
 
 
-	<!-- 	<build>
+	
+
+	<build>
+		<finalName>liquibase</finalName>
 		<plugins>
-			<plugin>
+		
+		<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.8.1</version>
@@ -73,12 +74,7 @@
 					</compilerArgs>
 				</configuration>
 			</plugin>
-		</plugins>
-	</build>
--->
-	<build>
-		<finalName>liquibase</finalName>
-		<plugins>
+		
 			<plugin>
 				<groupId>org.liquibase</groupId>
 				<artifactId>liquibase-maven-plugin</artifactId>
@@ -86,6 +82,19 @@
 					<propertyFile>liquibase.properties</propertyFile>
 					<changeLogFile>migrations/changelog.xml</changeLogFile>
 				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>com.spotify.fmt</groupId>
+				<artifactId>fmt-maven-plugin</artifactId>
+				<version>2.23</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>format</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>

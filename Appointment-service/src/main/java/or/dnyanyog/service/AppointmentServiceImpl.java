@@ -47,7 +47,9 @@ public class AppointmentServiceImpl implements AppointmentService {
               .setAppointmentTime(request.getAppointmentTime())
               .setExaminationDate(request.getExaminationDate())
               .setPatientId(request.getPatientId())
+              .setStatus("Accepted")
               .setPatientName(request.getPatientName());
+      			
       appointments = repo.save(appointments);
 
       response.setResponseCode(HttpStatus.CREATED.value());
@@ -60,7 +62,7 @@ public class AppointmentServiceImpl implements AppointmentService {
               .setExaminationDate(appointments.getExaminationDate())
               .setPatientId((appointments.getPatientId()))
               .setPatientName(appointments.getPatientName())
-              .setStatus("Pending");
+              .setStatus("Accepted");
       response.setData(data);
     }
     return ResponseEntity.status(HttpStatus.CREATED).body(response);
@@ -129,7 +131,7 @@ public class AppointmentServiceImpl implements AppointmentService {
     return response;
   }
 
-  public ResponseEntity<AppointmentResponse> getAppointmentByAppointmentID(Long appointmentId) {
+  public AppointmentResponse getAppointmentByAppointmentID(Long appointmentId) {
     Optional<Appointments> appointment = repo.findById(appointmentId);
     if (appointment.isPresent()) {
       Appointments getAppointment = appointment.get();
@@ -142,15 +144,15 @@ public class AppointmentServiceImpl implements AppointmentService {
               .setPatientName(getAppointment.getPatientName())
               .setStatus(getAppointment.getStatus());
       response = new AppointmentResponse();
-      response.setResponseCode(HttpStatus.FOUND.value());
+      response.setResponseCode(HttpStatus.OK.value());
       response.setResponseMsg("Appointment  found");
       response.setData(userData);
-      return ResponseEntity.status(HttpStatus.FOUND).body(response);
+      return response;
     } else {
       response = new AppointmentResponse();
       response.setResponseCode(HttpStatus.NOT_FOUND.value());
       response.setResponseMsg("Appointment not found");
-      return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
+      return response;
     }
   }
   
@@ -159,7 +161,7 @@ public class AppointmentServiceImpl implements AppointmentService {
 	    List<Appointments> appointments = repo.findAll();
 
 	    if (appointments != null) {
-	      response.setResponseCode(HttpStatus.FOUND.value());
+	      response.setResponseCode(HttpStatus.OK.value());
 	      response.setResponseMsg("Appointments data found");
 	    }
 	    List<AppointmentResponse> appointmentList = new ArrayList<>();

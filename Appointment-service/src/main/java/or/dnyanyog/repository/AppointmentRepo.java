@@ -8,7 +8,9 @@ import org.springframework.stereotype.Repository;
 
 import or.dnyanyog.entity.Appointments;
 
-@Component@Repository
+
+@Component
+@Repository
 public interface AppointmentRepo extends JpaRepository<Appointments,Long>{
 	Optional<Appointments> findByAppointmentId(Long appointmentId );
 	

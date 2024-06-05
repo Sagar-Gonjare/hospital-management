@@ -13,7 +13,7 @@ public class LoginController {
 	@Autowired LoginServiceImpl loginService;
 	
 	@PostMapping(
-			path="api/directory/public/v1/userLogin",
+			path="api/v1/public/directory/userLogin",
 			consumes = {"application/json", "application/xml"},
 		    produces = {"application/json", "application/xml"})
 	public LoginResponse userLogin(@RequestBody LoginRequest request) throws Exception {

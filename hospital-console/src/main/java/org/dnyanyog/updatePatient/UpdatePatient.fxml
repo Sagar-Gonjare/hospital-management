@@ -21,11 +21,6 @@
                         <Font size="17.0" />
                      </font>
                   </Button>
-                  <Button fx:id="save" layoutX="605.0" layoutY="445.0" mnemonicParsing="false" onAction="#save" prefHeight="40.0" prefWidth="200.0" styleClass="button-3" text="Save" textFill="WHITE">
-                     <font>
-                        <Font size="17.0" />
-                     </font>
-                  </Button>
                   <TextField fx:id="patientNameMarathi" layoutX="309.0" layoutY="169.0" prefHeight="35.0" prefWidth="450.0" styleClass="textfield-1">
                      <font>
                         <Font name="Calisto MT" size="16.0" />
@@ -68,7 +63,7 @@
                      </font>
                   </TextField>
                   <ComboBox fx:id="gender" layoutX="309.0" layoutY="270.0" prefHeight="40.0" prefWidth="450.0" styleClass="textfield-1" />
-                  <DatePicker fx:id="birthdate" layoutX="309.0" layoutY="326.0" prefHeight="35.0" prefWidth="214.0" promptText="BirthDate" />
+                  <DatePicker fx:id="birthDate" layoutX="309.0" layoutY="326.0" prefHeight="35.0" prefWidth="214.0" promptText="BirthDate" />
                   <Label layoutX="164.0" layoutY="389.0" text="Address">
                      <font>
                         <Font name="Cambria" size="18.0" />
@@ -104,6 +99,17 @@
                         <Font size="17.0" />
                      </font>
                   </Button>
+                  <Label fx:id="resultLabel" layoutX="355.0" layoutY="209.0" prefHeight="18.0" prefWidth="358.0">
+                     <font>
+                        <Font size="38.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="update" layoutX="645.0" layoutY="445.0" mnemonicParsing="false" onAction="#update" prefHeight="40.0" prefWidth="200.0" styleClass="button-3" text="Update" textFill="WHITE">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Button>
+                 
                </children>
             </AnchorPane>
          </children>

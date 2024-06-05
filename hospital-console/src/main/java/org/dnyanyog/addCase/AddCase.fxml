@@ -55,7 +55,7 @@
                         <Font name="Calisto MT" size="16.0" />
                      </font>
                   </TextField>
-                  <DatePicker fx:id="examinatiionDate" layoutX="309.0" layoutY="156.0" prefHeight="35.0" prefWidth="450.0" styleClass="textfield-1" />
+                  <DatePicker fx:id="examinationDate" layoutX="309.0" layoutY="156.0" prefHeight="35.0" prefWidth="450.0" styleClass="textfield-1" />
                   <TextField fx:id="symptoms" layoutX="309.0" layoutY="264.0" prefHeight="70.0" prefWidth="450.0" styleClass="textfield-1">
                      <font>
                         <Font name="Calisto MT" size="16.0" />

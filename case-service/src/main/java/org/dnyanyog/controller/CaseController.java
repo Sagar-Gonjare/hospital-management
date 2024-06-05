@@ -23,24 +23,26 @@ public class CaseController {
 	 @Autowired CaseServiceImpl service;
 	  @Autowired CaseResponse response;
 	  @Autowired CaseRepo repo;
+	  
+	  
+	  @PostMapping(
+		      path = "case/api/v1/addCase",
+		      consumes = {"application/json", "application/xml"},
+		      produces = {"application/json", "application/xml"})
+		  public ResponseEntity<CaseResponse> addCase(@RequestBody CaseRequest request) throws Exception {
+		    return service.addCase(request);
+		  }
+
 
 	  @PostMapping(
-	      path = "api/cases/v1/addCase",
-	      consumes = {"application/json", "application/xml"},
-	      produces = {"application/json", "application/xml"})
-	  public ResponseEntity<CaseResponse> addCase(@RequestBody CaseRequest request) throws Exception {
-	    return service.addCase(request);
-	  }
-
-	  @PostMapping(
-	      path = "api/cases/v1/updateCase",
+	      path = "case/api/v1/updateCase",
 	      consumes = {"application/json", "application/xml"},
 	      produces = {"application/json", "application/xml"})
 	  public ResponseEntity<CaseResponse> updatePatient(@RequestBody CaseRequest request) throws Exception {
 	    return service.updateCase(request);
 	  }
 
-	  @GetMapping(path = "api/cases/v1/getAllCase")
+	  @GetMapping(path = "case/api/v1/getAllCase")
 	  public ResponseEntity<List<CaseResponse>> getAllPatients() {
 
 	    return service.getAllCases();
@@ -48,12 +50,13 @@ public class CaseController {
 
 	  
 
-	  @GetMapping(path = "api/cases/v1/getcaseIdById/{caseId}")
-	  public ResponseEntity<CaseResponse> getPatientByName(@RequestParam Long caseId) {
-	    return service.getCaseByCaseID(caseId);
-	  }
+	  @GetMapping(path = "case/api/v1/getcaseIdById/{caseId}")
+	  public ResponseEntity<CaseResponse> getPatientByName(@PathVariable Long caseId) {
+		  CaseResponse caseResponse = service.getCaseByCaseID(caseId);
+		    return ResponseEntity.status(caseResponse.getResponseCode()).body(caseResponse);
+		  }
 
-	  @DeleteMapping(path = "api/cases/v1/deleteCase/{caseId}")
+	  @DeleteMapping(path = "case/api/v1/deleteCase/{caseId}")
 	  public ResponseEntity<CaseResponse> deletePatient(@PathVariable Long caseId) {
 		  CaseResponse caseResponse = service.deleteCase(caseId);
 	    return ResponseEntity.status(caseResponse.getResponseCode()).body(caseResponse);

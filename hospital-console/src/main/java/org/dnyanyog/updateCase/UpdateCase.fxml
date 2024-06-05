@@ -15,17 +15,17 @@
          <children>
             <AnchorPane layoutX="14.0" layoutY="3.0" prefHeight="523.0" prefWidth="894.0" styleClass="anchorpane-8">
                <children>
-                  <TextField fx:id="caseId" layoutX="20.0" layoutY="58.0" prefHeight="35.0" prefWidth="243.0" styleClass="textfield-1">
-                     <font>
-                        <Font name="Calisto MT" size="16.0" />
-                     </font>
-                  </TextField>
                   <Button fx:id="cancel" layoutX="117.0" layoutY="462.0" mnemonicParsing="false" onAction="#cancel" prefHeight="40.0" prefWidth="200.0" styleClass="button-3" text="Cancel" textFill="WHITE">
                      <font>
                         <Font size="17.0" />
                      </font>
                   </Button>
-                  <Button fx:id="save" layoutX="608.0" layoutY="462.0" mnemonicParsing="false" onAction="#save" prefHeight="40.0" prefWidth="200.0" styleClass="button-3" text="Save" textFill="WHITE">
+                  <TextField fx:id="caseId" layoutX="20.0" layoutY="58.0" prefHeight="35.0" prefWidth="243.0" styleClass="textfield-1">
+                     <font>
+                        <Font name="Calisto MT" size="16.0" />
+                     </font>
+                  </TextField>
+                  <Button fx:id="update" layoutX="608.0" layoutY="462.0" mnemonicParsing="false" onAction="#update" prefHeight="40.0" prefWidth="200.0" styleClass="button-3" text="Update" textFill="WHITE">
                      <font>
                         <Font size="17.0" />
                      </font>
@@ -60,7 +60,7 @@
                         <Font name="Calisto MT" size="16.0" />
                      </font>
                   </TextField>
-                  <DatePicker fx:id="examinatiionDate" layoutX="312.0" layoutY="226.0" prefHeight="35.0" prefWidth="450.0" styleClass="textfield-1" />
+                  <DatePicker fx:id="examinationDate" layoutX="312.0" layoutY="226.0" prefHeight="35.0" prefWidth="450.0" styleClass="textfield-1" />
                   <TextField fx:id="symptoms" layoutX="312.0" layoutY="327.0" prefHeight="54.0" prefWidth="450.0" styleClass="textfield-1">
                      <font>
                         <Font name="Calisto MT" size="16.0" />
@@ -96,7 +96,7 @@
                         <Font name="Cambria" size="18.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="patientId" layoutX="325.0" layoutY="58.0" prefHeight="35.0" prefWidth="243.0" styleClass="textfield-1">
+                  <TextField fx:id="searchPatientId" layoutX="325.0" layoutY="58.0" prefHeight="35.0" prefWidth="243.0" styleClass="textfield-1">
                      <font>
                         <Font name="Calisto MT" size="16.0" />
                      </font>

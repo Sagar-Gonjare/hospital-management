@@ -46,22 +46,22 @@
          <children>
             <AnchorPane layoutX="20.0" layoutY="36.0" prefHeight="490.0" prefWidth="894.0" styleClass="anchorpane-8">
                <children>
-                  <Button fx:id="edit" alignment="CENTER" layoutX="105.0" layoutY="122.0" mnemonicParsing="false" onAction="#edit" prefHeight="42.0" prefWidth="267.0" styleClass="button-4" text="Edit User" textFill="WHITE">
+                  <Button fx:id="edit" alignment="CENTER" layoutX="105.0" layoutY="122.0" mnemonicParsing="false" onAction="#edit" prefHeight="42.0" prefWidth="267.0" styleClass="button-3" text="Edit User" textFill="WHITE">
                      <font>
                         <Font size="17.0" />
                      </font>
                   </Button>
-                  <Button fx:id="search" alignment="CENTER" layoutX="105.0" layoutY="209.0" mnemonicParsing="false" onAction="#search" prefHeight="27.0" prefWidth="267.0" styleClass="button-4" text="Search User" textFill="WHITE">
+                  <Button fx:id="search" alignment="CENTER" layoutX="105.0" layoutY="209.0" mnemonicParsing="false" onAction="#search" prefHeight="27.0" prefWidth="267.0" styleClass="button-3" text="Search User" textFill="WHITE">
                      <font>
                         <Font size="16.0" />
                      </font>
                   </Button>
-                  <Button fx:id="delete" alignment="CENTER" layoutX="105.0" layoutY="287.0" mnemonicParsing="false" onAction="#delete" prefHeight="38.0" prefWidth="267.0" styleClass="button-4" text="Delete User" textFill="WHITE">
+                  <Button fx:id="delete" alignment="CENTER" layoutX="105.0" layoutY="287.0" mnemonicParsing="false" onAction="#delete" prefHeight="38.0" prefWidth="267.0" styleClass="button-3" text="Delete User" textFill="WHITE">
                      <font>
                         <Font size="16.0" />
                      </font>
                   </Button>
-                  <Button fx:id="add" alignment="CENTER" layoutX="105.0" layoutY="49.0" mnemonicParsing="false" onAction="#add" prefHeight="27.0" prefWidth="267.0" styleClass="button-4" text="Add User" textFill="WHITE">
+                  <Button fx:id="add" alignment="CENTER" layoutX="105.0" layoutY="49.0" mnemonicParsing="false" onAction="#add" prefHeight="27.0" prefWidth="267.0" styleClass="button-3" text="Add User" textFill="WHITE">
                      <font>
                         <Font size="17.0" />
                      </font>

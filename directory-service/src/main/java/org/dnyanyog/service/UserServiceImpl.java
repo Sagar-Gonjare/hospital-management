@@ -32,16 +32,18 @@ public class UserServiceImpl {
 
   public ResponseEntity<UserResponse> addUser(UserRequest request) throws Exception {
 
-    if (userRepo.findByUserName(request.getUserName()) != null) {
+    if (userRepo.existsByUserName(request.getUserName()))  {
       UserResponse response = new UserResponse();
       response.setResponseCode(HttpStatus.CONFLICT.value());
       response.setResponseMsg("Username is already exist");
       return ResponseEntity.status(HttpStatus.OK).body(response);
     }
+    
+    
     response = new UserResponse();
     response.setData(new UserData());
     //  userResponse (request.getConfirmPassword() == request.getPassword()) {
-    if (userRepo.findByUserName(request.getUserName()) == null) {
+    if (!(userRepo.existsByUserName(request.getUserName()) )) {
       Users usersTable =
           Users.getInstance()
               .setUserName(request.getUserName())
@@ -96,7 +98,7 @@ public class UserServiceImpl {
               .setUserId(updateUser.getUserId())
               .setRole(updateUser.getRole())
               .seteMail(updateUser.geteMail())
-              .setMobileNumber(updateUser.geteMail())
+              .setMobileNumber(updateUser.getMobileNumber())
               .setUserName(updateUser.getUserName())
               .setPassword(updateUser.getPassword())
               .setStatus(updateUser.getStatus());
@@ -146,15 +148,15 @@ public class UserServiceImpl {
               .setPassword(getUser.getPassword())
               .setStatus(getUser.getStatus());
       response = new UserResponse();
-      response.setResponseCode(HttpStatus.FOUND.value());
+      response.setResponseCode(HttpStatus.OK.value());
       response.setResponseMsg("User  found");
       response.setData(userData);
-      return ResponseEntity.status(HttpStatus.FOUND).body(response);
+      return ResponseEntity.status(HttpStatus.OK).body(response);
     } else {
       response = new UserResponse();
-      response.setResponseCode(HttpStatus.NOT_FOUND.value());
+      response.setResponseCode(HttpStatus.OK.value());
       response.setResponseMsg("User not found");
-      return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
+      return ResponseEntity.status(HttpStatus.OK).body(response);
     }
   }
 
@@ -163,7 +165,7 @@ public class UserServiceImpl {
     List<Users> users = userRepo.findAll();
 
     if (users != null) {
-      response.setResponseCode(HttpStatus.FOUND.value());
+      response.setResponseCode(HttpStatus.OK.value());
       response.setResponseMsg("Users data found");
     }
     List<UserResponse> userList = new ArrayList<>();

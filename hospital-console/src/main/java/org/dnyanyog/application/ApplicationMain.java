@@ -3,9 +3,14 @@ package org.dnyanyog.application;
 
 
 
+import org.dnyanyog.addAppointment.AddAppointment;
 import org.dnyanyog.addUser.AddUser;
 import org.dnyanyog.appointments.Appointments;
+import org.dnyanyog.cases.Cases;
 import org.dnyanyog.common.StageMaster;
+import org.dnyanyog.patients.Patients;
+import org.dnyanyog.updateAppointment.UpdateAppointment;
+import org.dnyanyog.updatePatient.UpdatePatient;
 import org.dnyanyog.users.Users;
 
 import javafx.application.Application;

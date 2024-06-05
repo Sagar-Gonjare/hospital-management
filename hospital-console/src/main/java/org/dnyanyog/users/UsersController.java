@@ -1,9 +1,12 @@
 package org.dnyanyog.users;
 
-import java.awt.event.ActionEvent;
 
 import org.dnyanyog.addUser.AddUser;
+import org.dnyanyog.appointments.Appointments;
+import org.dnyanyog.deleteUser.DeleteUser;
+import org.dnyanyog.updateUser.UpdateUser;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 
@@ -36,10 +39,8 @@ public class UsersController {
   }
 
   public void appointments(ActionEvent event) {
-    // new AppointmentActions().show();
-	     new Users().show();
-
-
+     new Appointments().show();
+	
   }
 
   public void dashboard(ActionEvent event) {
@@ -52,9 +53,13 @@ public class UsersController {
     new AddUser().show();
   }
 
-  public void edit(ActionEvent event) {}
+  public void edit(ActionEvent event) {
+	  new UpdateUser().show();
+  }
 
-  public void delete(ActionEvent event) {}
+  public void delete(ActionEvent event) {
+	  new DeleteUser().show();
+  }
 
   public void search(ActionEvent event) {}
 }

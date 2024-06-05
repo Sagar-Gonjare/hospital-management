@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
@@ -49,12 +51,12 @@
          <children>
             <AnchorPane layoutX="14.0" layoutY="20.0" prefHeight="490.0" prefWidth="894.0" styleClass="anchorpane-8">
                <children>
-                  <Button fx:id="cancel" layoutX="100.0" layoutY="417.0" mnemonicParsing="false" onAction="#cancel" prefHeight="40.0" prefWidth="200.0" styleClass="button-4" text="Cancel" textFill="WHITE">
+                  <Button fx:id="cancel" layoutX="100.0" layoutY="417.0" mnemonicParsing="false" onAction="#cancel" prefHeight="40.0" prefWidth="200.0" styleClass="button-3" text="Back" textFill="WHITE">
                      <font>
                         <Font size="17.0" />
                      </font>
                   </Button>
-                  <Button fx:id="save" layoutX="595.0" layoutY="417.0" mnemonicParsing="false" onAction="#save" prefHeight="40.0" prefWidth="200.0" styleClass="button-4" text="Save" textFill="WHITE">
+                  <Button fx:id="save" layoutX="595.0" layoutY="417.0" mnemonicParsing="false" onAction="#save" prefHeight="40.0" prefWidth="200.0" styleClass="button-3" text="Save" textFill="WHITE">
                      <font>
                         <Font size="17.0" />
                      </font>
@@ -99,7 +101,7 @@
                         <Font name="Calisto MT" size="16.0" />
                      </font>
                   </PasswordField>
-                  <PasswordField fx:id="confirmpassword" layoutX="309.0" layoutY="299.0" prefHeight="35.0" prefWidth="350.0" styleClass="textfield-1">
+                  <PasswordField fx:id="confirmPassword" layoutX="309.0" layoutY="299.0" prefHeight="35.0" prefWidth="350.0" styleClass="textfield-1">
                      <font>
                         <Font name="Calisto MT" size="16.0" />
                      </font>
@@ -114,7 +116,18 @@
                         <Font name="Calisto MT" size="16.0" />
                      </font>
                   </TextField>
-                  <ComboBox layoutX="309.0" layoutY="189.0" prefHeight="35.0" prefWidth="350.0" styleClass="textfield-1" />
+                  <ComboBox fx:id="role" layoutX="309.0" layoutY="189.0" prefHeight="35.0" prefWidth="350.0" styleClass="textfield-1">
+              
+               <items>
+                  	<FXCollections fx:factory="observableArrayList">
+                  	
+					 		<String fx:value="Admin" />
+							<String fx:value="ESS" />
+							<String fx:value="Doctor" />
+							<String fx:value="Staff" />
+					</FXCollections>
+					</items>
+			</ComboBox>
                </children>
             </AnchorPane>
          </children>

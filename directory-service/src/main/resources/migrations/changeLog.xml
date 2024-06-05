@@ -3,7 +3,10 @@
 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
 
 	<!-- Changes to include-->
+<!-- 	
 	<include file="migrations/changes/create_schemas.xml" />
 	<include file="migrations/changes/create_tables.xml" />
+
 	<include file="migrations/changes/insert_table_init_data.xml" />
+-->
 </databaseChangeLog>

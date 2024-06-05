@@ -22,7 +22,7 @@ public class AppointmentController {
   @Autowired AppointmentServiceImpl service;
 
   @PostMapping(
-      path = "api/appointments/v1/addAppointment",
+      path = "appointment/api/v1/addAppointment",
       consumes = {"application/json", "application/xml"},
       produces = {"application/json", "application/xml"})
   public ResponseEntity<AppointmentResponse> addAppointment(
@@ -31,7 +31,7 @@ public class AppointmentController {
   }
 
   @PostMapping(
-      path = "api/appointments/v1/updateAppointment",
+      path = "appointment/api/v1/updateAppointment",
       consumes = {"application/json", "application/xml"},
       produces = {"application/json", "application/xml"})
   public ResponseEntity<AppointmentResponse> updateAppointment(
@@ -39,18 +39,18 @@ public class AppointmentController {
     return service.updateUser(request);
   }
 
-  @GetMapping(path = "api/appointments/v1/getAllAppointment")
-  public ResponseEntity<List<AppointmentResponse>> getAllUsers() {
+  @GetMapping(path = "appointment/api/v1/getAllAppointment")
+  public ResponseEntity<List<AppointmentResponse>> getAllAppointments() {
     return service.getAllPatients();
   }
 
-  @GetMapping(path = "api/appointments/v1/getAppointmentByAppointment/{appointmentId}")
+  @GetMapping(path = "appointment/api/v1/getAppointmentByAppointment/{appointmentId}")
   public ResponseEntity<AppointmentResponse> getAppointmentById(@PathVariable Long appointmentId) {
-    return service.getAppointmentByAppointmentID(appointmentId);
-  }
+	  AppointmentResponse response = service.getAppointmentByAppointmentID(appointmentId);
+	    return ResponseEntity.status(response.getResponseCode()).body(response);  }
 
-  @DeleteMapping(path = "api/appointments/v1/delteAppointment/{appointmentId}")
-  public ResponseEntity<AppointmentResponse> deleteUser(@PathVariable Long appointmentId) {
+  @DeleteMapping(path = "appointment/api/v1/delteAppointment/{appointmentId}")
+  public ResponseEntity<AppointmentResponse> deleteAppointment(@PathVariable Long appointmentId) {
     AppointmentResponse response = service.deleteAppointment(appointmentId);
     return ResponseEntity.status(response.getResponseCode()).body(response);
   }
